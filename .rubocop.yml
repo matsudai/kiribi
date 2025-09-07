@@ -1,0 +1,32 @@
+require:
+  - standard
+  - standard-performance
+inherit_gem:
+  standard: config/base.yml
+  standard-performance: config/base.yml
+AllCops:
+  TargetRubyVersion: 3.4
+  NewCops: enable
+  Exclude: []
+
+# private/protected methods require an indent.
+#
+#     OK :
+#         private
+#
+#           def xxx; end
+#
+#     NG :
+#         private
+#
+#         def xxx; end
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+# Internal spaces are required when hash is not empty.
+#
+#     OK : {}, { a: 1 }
+#     NG : {  }, {a: 1}
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
