@@ -21,9 +21,7 @@ module Kiribi
       order = opt[:order] || 0
       path = opt[:path] || klass.name.split("::")
 
-      raise ArgumentError, "Order #{order} is already taken" if registry.any? { it[:order] == order }
-      raise ArgumentError, "Path #{path.join("::")} is already taken" if registry.any? { it[:path] == path }
-
+      registry.reject! { it[:klass] == klass }
       registry << { klass: klass, order: order, path: path }
     end
 
@@ -39,8 +37,12 @@ module Kiribi
       find_model.instantiate
     end
 
-    def instantiate(*, **, &)
-      new(*, **, &)
+    def load_onnx
+      load.onnx_model
+    end
+
+    def instantiate(...)
+      new(...)
     end
   end
 

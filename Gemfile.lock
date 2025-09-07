@@ -1,8 +1,3 @@
-PATH
-  remote: .
-  specs:
-    kiribi (0.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,10 +74,9 @@ PLATFORMS
 
 DEPENDENCIES
   irb
-  kiribi!
   rake (~> 13.0)
-  rubocop
-  standard
+  rubocop (~> 1.75.5)
+  standard (~> 1.50.0)
 
 BUNDLED WITH
-   2.7.1
+   2.6.9
