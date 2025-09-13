@@ -35,6 +35,8 @@ module Kiribi
           prefix = prefix.to_s
 
           raise ArgumentError, "prefix must be :query or :passage" unless %w[query passage].include?(prefix)
+
+          # https://huggingface.co/intfloat/multilingual-e5-small
           encoded = tokenizer.encode("#{prefix}: #{input}")
           batch = {
             input_ids: [encoded.ids],
@@ -42,9 +44,12 @@ module Kiribi
             token_type_ids: [[0] * encoded.ids.length]
           }
           outputs = onnx_model.predict(batch)
-          last_hidden_state = outputs["last_hidden_state"][0]
-          valid_tokens = encoded.attention_mask.sum
-          last_hidden_state[0...valid_tokens][0..384].transpose.map(&:sum).map { it / valid_tokens }
+          last_hidden = outputs["last_hidden_state"][0]
+          attentions = encoded.attention_mask
+
+          output_matrix = last_hidden.filter.with_index {  |_, i| attentions[i] == 1 }
+          valid_tokens = attentions.sum
+          output_matrix.transpose.map { |v| v.sum / valid_tokens }
         end
       end
 
