@@ -35,8 +35,8 @@ module Kiribi
 
         def embedding_normalized(text)
           vec = embedding(text)
-          norm = Math.sqrt(vec.sum { |v| v * v })
-          vec.map { |v| v / norm }
+          norm = Math.sqrt(vec.sum { it * it })
+          vec.map { it / norm }
         end
       end
 

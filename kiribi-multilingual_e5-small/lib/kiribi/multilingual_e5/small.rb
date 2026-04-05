@@ -49,7 +49,7 @@ module Kiribi
 
           output_matrix = last_hidden.filter.with_index {  |_, i| attentions[i] == 1 }
           valid_tokens = attentions.sum
-          output_matrix.transpose.map { |v| v.sum / valid_tokens }
+          output_matrix.transpose.map { it.sum / valid_tokens }
         end
       end
 
