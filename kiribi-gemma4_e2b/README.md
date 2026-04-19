@@ -1,4 +1,21 @@
-# kiribi-gemma4_e2b
+# kiribi-gemma4_e2b (DEPRECATED)
+
+**This addon is deprecated.** Use the `kiribi` gem directly (>= 0.1.0), which now bundles this model:
+
+```sh
+gem install kiribi
+```
+
+```ruby
+require "kiribi"
+Kiribi.download("gemma4-e2b")              # or: kiribi download gemma4-e2b
+model = Kiribi.load("gemma4-e2b")
+model.generate("Hello!")
+```
+
+The `kiribi-gemma4_e2b` gem is pinned to `kiribi < 0.1.0` and will be removed from RubyGems in a future release.
+
+---
 
 Google Gemma 4 E2B (2.3B parameters) multimodal model for text, image, and audio.
 

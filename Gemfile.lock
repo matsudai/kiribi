@@ -4,6 +4,7 @@ GEM
     ast (2.4.3)
     date (3.4.1)
     erb (5.0.2)
+    ffi (1.17.4-x86_64-linux-gnu)
     io-console (0.8.1)
     irb (1.15.2)
       pp (>= 0.6.0)
@@ -12,6 +13,8 @@ GEM
     json (2.13.2)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
+    onnxruntime (0.11.1-x86_64-linux)
+      ffi
     parallel (1.27.0)
     parser (3.3.9.0)
       ast (~> 2.4.1)
@@ -64,19 +67,21 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.25.0)
     stringio (3.1.7)
+    tokenizers (0.6.4-x86_64-linux)
     unicode-display_width (3.1.5)
       unicode-emoji (~> 4.0, >= 4.0.4)
-    unicode-emoji (4.0.4)
+    unicode-emoji (4.2.0)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
   irb
+  onnxruntime (~> 0.11.1)
   rake (~> 13.0)
   rubocop (~> 1.75.5)
   standard (~> 1.50.0)
+  tokenizers (~> 0.6.4)
 
 BUNDLED WITH
-   2.6.9
+  4.0.6

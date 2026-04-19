@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = Kiribi::Gemma4::E2B::VERSION
   spec.authors = ["matsudai"]
 
-  spec.summary = "Easy to use some onnx models."
+  spec.summary = "[DEPRECATED] Use the kiribi gem directly (Kiribi.download/load). This addon will be removed."
   spec.homepage = "https://github.com/matsudai/kiribi"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.4.0"
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "kiribi", ">= 0.0.1"
+  spec.add_dependency "kiribi", ">= 0.0.1", "< 0.1.0"
   spec.add_dependency "onnxruntime", ">= 0.10.0"
   spec.add_dependency "tokenizers", ">= 0.6.0"
 end

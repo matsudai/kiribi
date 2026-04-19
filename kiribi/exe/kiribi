@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "kiribi"
+
+cmd = ARGV[0]
+
+case cmd
+when "download"
+  name = ARGV[1]
+  abort "usage: kiribi download <name> [--force]" unless name
+  force = ARGV.include?("--force")
+  Kiribi.download(name, force: force)
+when "list"
+  puts Kiribi::MODELS
+else
+  abort "usage: kiribi <download|list>"
+end

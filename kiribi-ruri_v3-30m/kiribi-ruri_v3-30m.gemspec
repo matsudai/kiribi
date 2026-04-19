@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = Kiribi::RuriV3::Ruri30M::VERSION
   spec.authors = ["matsudai"]
 
-  spec.summary = "Easy to use some onnx models."
+  spec.summary = "[DEPRECATED] Use the kiribi gem directly (Kiribi.download/load). This addon will be removed."
   spec.homepage = "https://github.com/matsudai/kiribi"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.4.0"
@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
-  spec.add_dependency "kiribi", ">= 0.0.1"
+  spec.add_dependency "kiribi", ">= 0.0.1", "< 0.1.0"
   spec.add_dependency "onnxruntime", ">= 0.10.0"
   spec.add_dependency "tokenizers", ">= 0.6.0"
 end

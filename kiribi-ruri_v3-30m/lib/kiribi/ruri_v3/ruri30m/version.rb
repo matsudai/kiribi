@@ -3,7 +3,7 @@
 module Kiribi
   module RuriV3
     module Ruri30M
-      VERSION = "0.0.3"
+      VERSION = "0.1.0"
     end
   end
 end
